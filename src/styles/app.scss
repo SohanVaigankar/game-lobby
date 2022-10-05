@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    &::-webkit-scrollbar{
+        width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: darkgrey;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: white;
+    }
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+h2{
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+h3{
+    font-size: 1.3rem;
+    color: #333333;
+    padding: 1.5rem 0rem;
+}
+
+p{
+    font-size: 1.2rem;
+    line-height: 200%;
+    color: #696969;
+}
+
+a{
+    text-decoration:none;
+    color: #333333;
+}
+
+img{
+    display: block
+}
+
+input{
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.loading-screen{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: whitesmoke;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+        font-size: 3rem;
+        text-align: center
+    }
+}
+
+@import "./home.scss";
+@import "./gameCard.scss";
+@import "./gameDetails.scss";
+@import "./nav.scss";
