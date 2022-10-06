@@ -72,6 +72,19 @@ input{
     }
 }
 
+
+// LazyLoading Images
+.loading{
+    filter: blur(10px);
+    clip-path: inset(0);
+}
+
+.loaded{
+    filter: blur(0px);
+    transition: filter 0.5s linear;
+}
+
+
 @import "./home.scss";
 @import "./gameCard.scss";
 @import "./gameDetails.scss";

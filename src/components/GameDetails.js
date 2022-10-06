@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 // utilities
 import getPlatform from "../utils/platformLogos";
+import lazyLoadImages from "../utils/lazyLoadImages";
 
 const GameDetails = () => {
   const { gameDetails, gameScreenshots, isLoading } = useSelector(
@@ -22,6 +23,15 @@ const GameDetails = () => {
     }
   };
 
+  // Lazy Loading Images
+
+  // state to keep track of image loading
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  //  useEffect hook to execute lazy loading
+  useEffect(() => {
+    lazyLoadImages();
+  }, [isLoading]);
+
   return (
     <>
       {
@@ -31,7 +41,7 @@ const GameDetails = () => {
               <h2>Loading...</h2>
             </div>
           ) : (
-            <div className="details" >
+            <div className="details">
               <div className="stats">
                 <div className="rating">
                   <h3>{gameDetails.data?.name}</h3>
@@ -42,9 +52,12 @@ const GameDetails = () => {
                   <div className="platforms">
                     {gameDetails.data?.platforms.map((data) => (
                       <img
-                        src={getPlatform(data.platform.name)}
+                        src={""}
+                        data-src={getPlatform(data.platform.name)}
                         key={data.platform.id}
                         alt={data.platform.name}
+                        onLoad={() => setIsImageLoaded(true)}
+                        className={isImageLoaded ? "loaded" : "loading"}
                       />
                     ))}
                   </div>
@@ -52,8 +65,11 @@ const GameDetails = () => {
               </div>
               <div className="media">
                 <img
-                  src={gameDetails.data?.background_image}
+                  src={""}
+                  data-src={gameDetails.data?.background_image}
                   alt="background theme"
+                  onLoad={() => setIsImageLoaded(true)}
+                  className={isImageLoaded ? "loaded" : "loading"}
                 />
               </div>
               <div className="description">
@@ -63,8 +79,11 @@ const GameDetails = () => {
                 {gameScreenshots.data?.results.map((data) => (
                   <img
                     key={data.id}
-                    src={data.image}
+                    src={""}
+                    data-src={data.image}
                     alt={`${gameDetails.data?.name} screenshot`}
+                    onLoad={() => setIsImageLoaded(true)}
+                    className={isImageLoaded ? "loaded" : "loading"}
                   />
                 ))}
               </div>
