@@ -42,6 +42,12 @@ const GameDetails = () => {
             </div>
           ) : (
             <div className="details">
+              <div
+                className="close-details-btn shadow"
+                onClick={exitDetailsPageHandler}
+              >
+                X
+              </div>
               <div className="stats">
                 <div className="rating">
                   <h3>{gameDetails.data?.name}</h3>

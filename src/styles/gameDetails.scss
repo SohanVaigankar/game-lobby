@@ -31,6 +31,21 @@
     img{
         width: 100%;
     }
+
+    .close-details-btn{
+        display: inline-block;
+        position: absolute;
+        right: 2.5rem;
+        font-weight: 900;
+        padding: 0.5rem;
+
+        &:hover{
+            border-radius: 30%;
+            background-color: rgba(214, 108, 108, 0.653);
+            cursor: pointer;
+            color: white;
+        }
+    }
 }
 
 .stats{
@@ -62,4 +77,54 @@
 
 .description{
     margin: 5rem 0rem;
+}
+
+@media(max-width:1240px){
+    .stats{
+        flex-direction: column;
+        text-align: center;
+
+
+        .rating{
+            p{
+            }
+        }
+        .platforms{
+            img{
+                margin: 0rem 1.5rem;
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+}
+@media(max-width:1024px){
+    .details{
+        padding: 2rem ;
+    }
+    .info{
+        margin-top: 3rem;
+    }
+}
+
+@media(max-width:768px){
+    .details{
+        left: 0;
+        width: 100%;
+        
+    }
+    .info{
+        margin-top: 3rem;
+    }
+}
+
+@media(max-width:500px){
+
+    .details{
+        padding:2rem 0.2rem ;
+    }
+
+    .stats{
+        margin-top:1rem ;
+    }
 }
