@@ -42,7 +42,6 @@ const Home = () => {
 
       {searchedGames.length ? (
         <div className="searched">
-          <h2>Searched Games</h2>
           <div className="clear-searched-games">
             <img
               src={require("../img/dustbin_icon.png")}
@@ -51,6 +50,7 @@ const Home = () => {
             />
           </div>
 
+          <h2>Searched Games</h2>
           <div className="games">
             {searchedGames.map((game) => (
               <Game key={game.id} game={game} />
