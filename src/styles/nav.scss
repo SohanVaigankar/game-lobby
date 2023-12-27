@@ -18,7 +18,7 @@ nav {
     input {
       height: 100%;
       width: 100%;
-      padding: 0.5rem;
+      padding: 0.5rem 10rem 0.5rem 0.5rem;
       border: 2px solid #ff7676;
       &:focus {
         outline: 1px solid #ff7676;
@@ -40,6 +40,17 @@ nav {
       cursor: pointer;
       background-color: #ff7676;
       color: white;
+    }
+
+    .clear_button{
+        position: absolute;
+        top: 0.5rem;
+        right: 8rem;
+        color: #ff7676;
+        
+        &:hover{
+            cursor: pointer;
+        }
     }
   }
 }
@@ -73,10 +84,6 @@ nav {
       button {
         font-size: 1.3rem;
       }
-
-      input {
-        font-size: 1.3rem;
-      }
     }
 
     .logo {
@@ -100,6 +107,12 @@ nav {
 
       button {
         position: static;
+      }
+
+      .clear_button{
+        right: 1rem;
+        top: 0.5rem;
+        font-size: 1.5rem;
       }
     }
     .logo {

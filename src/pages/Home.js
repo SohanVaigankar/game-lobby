@@ -25,11 +25,6 @@ const Home = () => {
   const { popularGames, upcomingGames, newGames, searchedGames, isLoading } =
     useSelector((state) => state.gamesReducer);
 
-  //   fn to clear searched games
-  const clearSearchedGames = () => {
-    dispatch({ type: "CLEAR_SEARCHED_GAMES" });
-  };
-
   return (
     <div className="game-list">
       {isLoading ? (
@@ -42,14 +37,6 @@ const Home = () => {
 
       {searchedGames.length ? (
         <div className="searched">
-          <div className="clear-searched-games">
-            <img
-              src={require("../img/dustbin_icon.png")}
-              onClick={clearSearchedGames}
-              alt="dustbin logo"
-            />
-          </div>
-
           <h2>Searched Games</h2>
           <div className="games">
             {searchedGames.map((game) => (

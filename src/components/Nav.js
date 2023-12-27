@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { IoIosClose } from "react-icons/io";
 import { loadSearchedGames } from "../actions/gamesAction";
 import { useDispatch } from "react-redux";
 
@@ -12,17 +12,22 @@ const Nav = () => {
 
   // fn to update input values to the state
   const inputHandler = (e) => {
+    e.preventDefault();
     setSearchQuery(e.target.value);
+  };
+
+  const handleClick = () => {
+    dispatch({ type: "CLEAR_SEARCHED_GAMES" });
+    setSearchQuery("");
   };
 
   //   fn to handle form submission
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(loadSearchedGames(searchQuery));
-    setSearchQuery("");
+    if (searchQuery) {
+      dispatch(loadSearchedGames(searchQuery));
+    }
   };
-
- 
 
   return (
     <motion.nav>
@@ -34,6 +39,9 @@ const Nav = () => {
         <button type="submit" onClick={submitHandler}>
           Search
         </button>
+        {searchQuery && (
+          <IoIosClose className="clear_button" onClick={handleClick} />
+        )}
       </form>
     </motion.nav>
   );
